@@ -40,7 +40,6 @@ function checkLetter(target) {
   const lis = ul.children;
   const btnCheck = button.textContent.toUpperCase();
   button.className = 'chosen';
-  console.log(btnCheck);
 
 
   for (let i = 0; i < lis.length; i++) {
@@ -104,8 +103,9 @@ qwerty.addEventListener('click', (e) => {
         missed++;
         heart[missed - 1].children[0].src = "images/lostHeart.png";
       }
-      checkWin();
       previousScore = score;
+
+      setTimeout(checkWin, 4000);
 
     }
   }
