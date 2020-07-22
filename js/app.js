@@ -10,7 +10,8 @@ let score = 0;
 let previousScore = 0;
 
 let missed = 0;
-const phrases = ['Hello World', 'Funeralopolis', 'Sour Cream and Onion', 'Fox Creek', 'Javascript is fun'];
+
+const phrases = ['Hello World', 'Funeralopolis', 'Sour Cream and Onion', 'Fox Creek', 'Javascript is fun', 'Fiddlehead'];
 
 const getRandomPhraseToDisplay = (arr) => {
   const index = Math.floor(Math.random() * arr.length)
@@ -30,7 +31,6 @@ const addPhrasetoDisplay = (arr) => {
     } else {
       li.className = "letter";
     }
-
     ul.appendChild(li);
   }
 };
@@ -77,7 +77,6 @@ resetButton.addEventListener('click', () => {
     previousScore = 0;
     missed = 0;
     ul.innerHTML = '';
-
     const chosen = document.querySelectorAll('.chosen');
 
     for ( let i = 0; i < chosen.length; i++ ) {
@@ -87,7 +86,6 @@ resetButton.addEventListener('click', () => {
     for ( let i = 0; i < heart.length; i++ ) {
       heart[i].children[0].src = "images/liveHeart.png";
     }
-
 
     overlay.style.display = 'none';
     const phrase = getRandomPhraseToDisplay(phrases);
@@ -103,10 +101,9 @@ qwerty.addEventListener('click', (e) => {
         missed++;
         heart[missed - 1].children[0].src = "images/lostHeart.png";
       }
+
       previousScore = score;
-
-      setTimeout(checkWin, 4000);
-
+      setTimeout(checkWin, 2000);
     }
   }
 });
